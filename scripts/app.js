@@ -1,5 +1,5 @@
 /*
-======VIDEOGAME FRANCHISE ANNUALIZER======
+======VIDEO GAME FRANCHISE ANNUALIZER======
 A thing that Nick Cummings wrote - say hi at http://www.nickcummings.com/ or @nickcummings
 
 =======INTRODUCTION========
@@ -309,7 +309,7 @@ var franchiseCancelReasons = [
 	"because the future's in mobile and everybody knows it except you",
 	"because Frank in Accounting accidentally dropped a decimal place a few months back",
 	"in light of a bloodless coup in a distant country that was orchestrated through our matchmaking service",
-	"because every single person on the planet no longer enjoys videogames thanks to our business savvy",
+	"because every single person on the planet no longer enjoys video games thanks to our business savvy",
 	"since we're shifting all our dev resources over to Ouya",
 ];
 /* console.log("And suffixes are: " + gameNamesSuffixes); */
