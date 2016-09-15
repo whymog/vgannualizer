@@ -1,12 +1,12 @@
+p {
+	font-family:"Helvetica","Tahoma",sans-serif;
+}
+
 #gameNameSection {
 	visibility:hidden;
 	text-align:center;
 	margin-right:10%;
 	margin-left:10%;
-}
-
-p {
-	font-family:"Helvetica","Tahoma",sans-serif;
 }
 
 .newGameStyle {
@@ -16,8 +16,17 @@ p {
 }
 
 #bottomLine {
-border-top:2px dashed #DDDDDD;
-margin-bottom:12px;
+	border-top:2px dashed #DDDDDD;
+	margin-bottom:12px;
+}
+
+.topText {
+    text-align: center;
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+       -moz-animation: fadein 3s; /* Firefox */
+        -ms-animation: fadein 3s; /* Internet Explorer */
+         -o-animation: fadein 3s; /* Opera */
+            animation: fadein 3s;
 }
 
 .topText h1 {
@@ -26,6 +35,11 @@ margin-bottom:12px;
 	font-weight:900;
 	margin-top:10px;
 	margin-bottom:20px;
+}
+
+.topText p {
+	font-size:1.7em;
+	font-weight:100;
 }
 
 #bottomLinks {
@@ -42,19 +56,7 @@ margin-bottom:12px;
 	font-weight:100;
 }
 
-.topText {
-    text-align: center;
-    -webkit-animation: fadein 3s; /* Safari and Chrome */
-       -moz-animation: fadein 3s; /* Firefox */
-        -ms-animation: fadein 3s; /* Internet Explorer */
-         -o-animation: fadein 3s; /* Opera */
-            animation: fadein 3s;
-}
-
-.topText p {
-font-size:1.7em;
-font-weight:100;
-}
+/* FADE-IN EFFECT */
 
 @keyframes fadein {
     0% { opacity: 0; }
@@ -64,28 +66,28 @@ font-weight:100;
 
 /* Firefox */
 @-moz-keyframes fadein {
-0% { opacity: 0; }
-33%   { opacity: 0; }
-100% {opacity:1;}
+	0% { opacity: 0; }
+	33%   { opacity: 0; }
+	100% {opacity:1;}
 }
 
 /* Safari and Chrome */
 @-webkit-keyframes fadein {
-0% { opacity: 0; }
-33%   { opacity: 0; }
-100% {opacity:1;}
+	0% { opacity: 0; }
+	33%   { opacity: 0; }
+	100% {opacity:1;}
 }
 
 /* Internet Explorer */
 @-ms-keyframes fadein {
-0% { opacity: 0; }
-33%   { opacity: 0; }
-100% {opacity:1;}
+	0% { opacity: 0; }
+	33%   { opacity: 0; }
+	100% {opacity:1;}
 }​
 
 /* Opera */
 @-o-keyframes fadein {
-0% { opacity: 0; }
-33%   { opacity: 0; }
-100% {opacity:1;}
+	0% { opacity: 0; }
+	33%   { opacity: 0; }
+	100% {opacity:1;}
 }​
