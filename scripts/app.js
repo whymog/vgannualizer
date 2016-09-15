@@ -6,7 +6,7 @@ A thing that Nick Cummings wrote - say hi at http://www.nickcummings.com/ or @ni
 
 So let's describe how we're gonna do all this:
 
-This is a videogame franchise annualizer. 
+This is a video game franchise annualizer. 
 It generates the names and positive and negative traits of each game 
 in the series, outputs a Metacritic score using some intentionally 
 sketchy math, and after 2-10 iterations kills off the franchise for
@@ -23,11 +23,6 @@ c. Create array to hold all game names
 II. Process Iterations
 III. Output Results
 IV. Kill the franchise once it's overstayed its welcome
-
-======TO DO======
-1. CSS (duh)
-2. Twitter integration
-3. Register a domain
 */
 
 // Hide results section
@@ -298,6 +293,7 @@ var gameNamesSuffixes = [
 	"Tenkaichi",
 	"Fabula Nova Crystalis",
 ];
+
 var franchiseCancelReasons = [
 	"because a wealthy investor felt the games were an affront to their opulent lifestyle",
 	"after in-game advertisers complained of poor conversion rates",
@@ -339,17 +335,16 @@ function makeFirstGame() {
 	document.getElementById("paraGameName").className = "textFadeIn";
 	document.getElementById("btnStart").style.visibility = "hidden";
 	document.getElementById("gameNameDisplay").innerHTML = "<p class=\"newGameStyle\">\"" + userGameNames[0] + "\"</p><p>Impressive. It's rare to see such an achievement of innovative design and cutting-edge graphics. Critics are sure to eat it up.</p><p>But why stop there when there's mad skrilla to be made?</p>";
-	
 };
 
-// Okay, everything's good so far. Now we need to add some naming logic for subsequent sequels.
-/* This logic should be as follows:
-1. Sequels must add one of the following: an incremental number to the end of the title OR a prefix
-1.a. If a prefix exists and a new one is added, remove the incremental number from the display name
-2. Sequels MAY add a suffix on each iteration as well
-3. Names display like this: [prefix]_[adjective]_[noun]_[incrementalNumber*]:_[suffix]
-4. Each sequel has an increasing chance of killing off the franchise entirely. When this happens,
-hide the sequelize button and display a reset button.
+/*  Okay, everything's good so far. Now we need to add some naming logic for subsequent sequels.
+   	This logic should be as follows:
+		1. Sequels must add one of the following: an incremental number to the end of the title OR a prefix
+			a. If a prefix exists and a new one is added, remove the incremental number from the display name
+		2. Sequels MAY add a suffix on each iteration as well
+		3. Names display like this: [prefix]_[adjective]_[noun]_[incrementalNumber*]:_[suffix]
+		4. Each sequel has an increasing chance of killing off the franchise entirely. When this happens,
+		hide the sequelize button and display a reset button.
 */
 
 var franchisePrefix = "";
@@ -382,21 +377,21 @@ function sequelizeGame() {
 			if(franchisePrefix === "") { // If prefix NOT displayed
 				if(franchiseSuffix === "") { // No prefix, no suffix, yes number displayed
 					newGameName = "\"" + franchiseAdjective + " " + franchiseNoun + " " + franchiseNumber + "\"";
-					console.log("Display franchise number, no prefix, no suffix: " + newGameName);
+					// console.log("Display franchise number, no prefix, no suffix: " + newGameName);
 				}
 				else { //No prefix, yes suffix, yes number displayed
 					newGameName = "\"" + franchiseAdjective + " " + franchiseNoun + " " + franchiseNumber + ": " + franchiseSuffix + "\"";
-					console.log("Display franchise number, no prefix, yes suffix: " + newGameName);
+					// console.log("Display franchise number, no prefix, yes suffix: " + newGameName);
 				}
 			}
 			else { // if prefix IS displayed from previous iteration
 				if(franchiseSuffix === "") { // yes prefix, no suffix, yes display number
 					newGameName = "\"" + franchisePrefix + " " + franchiseAdjective + " " + franchiseNoun + " " + franchiseNumber + "\"";
-					console.log("Display franchise number, yes prefix, no suffix: " + newGameName);
+					// console.log("Display franchise number, yes prefix, no suffix: " + newGameName);
 				}
 				else { // yes prefix, yes suffix, yes display number
 					newGameName = "\"" + franchisePrefix + " " + franchiseAdjective + " " + franchiseNoun + " " + franchiseNumber + ": " + franchiseSuffix + "\"";
-					console.log("Display franchise number, prefix and suffix: " + newGameName);
+					// console.log("Display franchise number, prefix and suffix: " + newGameName);
 				}
 			}
 		}
@@ -404,21 +399,21 @@ function sequelizeGame() {
 			if(franchisePrefix === "") {
 				if(franchiseSuffix === "") { //no prefix, no suffix, no franchise number - shouldn't happen
 					newGameName = "\"" + franchiseAdjective + " " + franchiseNoun + "\"";
-					console.log("!!BAD!! No prefix, No suffix, No number: " + newGameName);
+					// console.log("!!BAD!! No prefix, No suffix, No number: " + newGameName);
 				}
 				else { //no prefix, YES suffix, no franchise number - also shouldn't happen
 					newGameName = "\"" + franchiseAdjective + " " + franchiseNoun + ": " + franchiseSuffix + "\"";
-					console.log("!!BAD!! Display suffix, NO prefix or franchise number: " + newGameName);
+					// console.log("!!BAD!! Display suffix, NO prefix or franchise number: " + newGameName);
 				}
 			}
 			else {
 				if(franchiseSuffix === "") { //YES prefix, no suffix, no franchise number
 					newGameName	= "\"" + franchisePrefix + " " + franchiseAdjective + " " + franchiseNoun + "\"";
-					console.log("Display franchise prefix, NO suffix or franchise number: " + newGameName);
+					// console.log("Display franchise prefix, NO suffix or franchise number: " + newGameName);
 				}
 				else { // YES prefix, YES suffix, no franchise number
 					newGameName = "\"" + franchisePrefix + " " + franchiseAdjective + " " + franchiseNoun + ": " + franchiseSuffix + "\"";
-					console.log("Display prefix and suffix, NO franchise number: " + newGameName);
+					// console.log("Display prefix and suffix, NO franchise number: " + newGameName);
 				}
 			}			
 		}
@@ -427,7 +422,7 @@ function sequelizeGame() {
 		document.getElementById("gameNameDisplay").innerHTML += "<p class=\"newGameStyle\">" + newGameName + "</p>";
 	}
 	else {
-		console.log("Done after " + userGameNames.length + " turns.");
+		// console.log("Done after " + userGameNames.length + " turns.");
 		document.getElementById("gameNameDisplay").innerHTML += "<br /><p>Unfortunately, after " + (userGameNames.length) + " games, this franchise has been put to pasture " + franchiseCancelReasons[Math.floor(Math.random() * franchiseCancelReasons.length)] + ". <a href=\"#\" onClick=\"location.reload();\"></p><p>Refresh the page</a> to try again!</p>";
 		document.getElementById("btnSequel").style.visibility = "hidden";
 		document.getElementById("bottomLinks").style.visibility = "visible";
