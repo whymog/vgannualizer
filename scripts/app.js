@@ -135,6 +135,10 @@ var gameNamesAdjectives = [
 	"Jonathan Blow's",
 	"Record of",
 	"Mortal",
+	"Hatsune Miku",
+	"The Clash at",
+	"Crash 'n' the",
+
 ];
 // console.log("Adjectives are: " + gameNamesAdjectives);
 
@@ -219,6 +223,7 @@ var gameNamesNouns = [
 	"Kombat",
 	"Budokai",
 	"Comix Zone",
+	"Project DIVA",
 ];
 // console.log("Nouns are: " + gameNamesNouns);
 
@@ -292,6 +297,8 @@ var gameNamesSuffixes = [
 	"Ultimate Ninja STORM Full Burst",
 	"Tenkaichi",
 	"Fabula Nova Crystalis",
+	"The Collection",
+	"Dancing All Night",
 ];
 
 var franchiseCancelReasons = [
@@ -307,6 +314,7 @@ var franchiseCancelReasons = [
 	"in light of a bloodless coup in a distant country that was orchestrated through our matchmaking service",
 	"because every single person on the planet no longer enjoys video games thanks to our business savvy",
 	"since we're shifting all our dev resources over to Ouya",
+	"because our VR integration made kids vomit, and that's not a super easy to market",
 ];
 /* console.log("And suffixes are: " + gameNamesSuffixes); */
 
