@@ -96,7 +96,7 @@ var gameNamesAdjectives = [
 	"Excitebike",
 	"Final",
 	"Gaius Baltar's",
-	"Gene Schalit's",
+	"Gene Shalit's",
 	"God of",
 	"Guy Fieri's",
 	"Harry Belafonte's",
