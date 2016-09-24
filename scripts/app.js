@@ -27,7 +27,18 @@ IV. Kill the franchise once it's overstayed its welcome
 
 // Hide results section
 
-window.onload = function() {document.getElementById("gameNameSection").style.visibility="hidden"};
+window.onload = function() {
+	document.getElementById("gameNameSection").style.visibility = "hidden";
+	document.addEventListener("keydown", function(event) {
+		console.log("keydown on " + event.keyCode);
+		if (event.keyCode === 83 && !gameOver) { // letter 's'
+			gameStarted ? sequelizeGame() : makeFirstGame();
+		}
+	});
+};
+
+var gameStarted = false,
+	gameOver = false;
 
 // Create arrays for game name components
 var gameNamesPrefixes = [
@@ -344,13 +355,14 @@ var gameTraitsNegative = new Array();
 // First we'll fix the adjective and noun -- these will remain constant throughout the franchise
 
 function makeFirstGame() {
+	gameStarted = true;
 	franchiseAdjective = gameNamesAdjectives[Math.floor(Math.random() * gameNamesAdjectives.length)];
 	franchiseNoun = gameNamesNouns[Math.floor(Math.random() * gameNamesNouns.length)];
 	userGameNames[0] = (franchiseAdjective + " " + franchiseNoun);
 	console.log(userGameNames[0]); 
 	document.getElementById("gameNameSection").style.visibility = "visible";
 	document.getElementById("paraGameName").className = "textFadeIn";
-	document.getElementById("btnStart").style.visibility = "hidden";
+	document.getElementById("btnStart").style.display = "none";
 	document.getElementById("gameNameDisplay").innerHTML = "<p class=\"newGameStyle\">\"" + userGameNames[0] + "\"</p><p>Impressive. It's rare to see such an achievement of innovative design and cutting-edge graphics. Critics are sure to eat it up.</p><p>But why stop there when there's mad skrilla to be made?</p>";
 };
 
@@ -444,7 +456,7 @@ function sequelizeGame() {
 		document.getElementById("btnSequel").style.visibility = "hidden";
 		document.getElementById("bottomLinks").style.visibility = "visible";
 		franchiseNumber = 1;
-		
+		gameOver = true;
 	}
 	franchiseSuffix = ""; // Clear the suffix if there is one
 }
