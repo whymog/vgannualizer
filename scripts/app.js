@@ -298,6 +298,7 @@ var gameNamesSuffixes = [
 	"The Exact Same Game as Last Time Except We Threw In All of the DLC Too",
 	"The Legend of Curly\'s Gold",
 	"The Line",
+	"The Mindgate Conspiracy",
 	"The Prometheus Synapse",
 	"Throne of Bhaal",
 	"Tournament Edition",

@@ -2,11 +2,19 @@ p {
 	font-family:"Helvetica","Tahoma",sans-serif;
 }
 
+button {
+	font-size: 1.0em;
+}
+
 #gameNameSection {
 	visibility:hidden;
 	text-align:center;
 	margin-right:10%;
 	margin-left:10%;
+}
+
+.underline {
+	text-decoration: underline;
 }
 
 .newGameStyle {
