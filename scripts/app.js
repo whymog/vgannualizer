@@ -293,6 +293,7 @@ var gameNamesSuffixes = [
 	"Prestige Edition",
 	"Red Version",
 	"Reloaded",
+	"Resurrection",
 	"Soccer",
 	"Special Edition",
 	"Starring Troy Baker as \'Troy Baker\'",
@@ -335,6 +336,7 @@ var franchiseCancelReasons = [
 	"because every single person on the planet no longer enjoys video games thanks to our business savvy",
 	"since we're shifting all our dev resources over to Ouya",
 	"because our VR integration made kids vomit, and that's not a super easy to market",
+	"because our last game pivoted to a Live Service model and failed to attract enough Daily Active Users to please the shareholders",
 ];
 /* console.log("And suffixes are: " + gameNamesSuffixes); */
 
