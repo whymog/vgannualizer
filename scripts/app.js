@@ -241,7 +241,7 @@ var gameNamesNouns = [
   "Zork"
 ];
 
-var gameNamesSuffixes = [
+var gameNamesSubtitlees = [
   "$$ Freemium Edition $$",
   "2014",
   "Adventures",
@@ -337,13 +337,12 @@ var franchiseCancelReasons = [
   "because our VR integration made kids vomit, and that's not a super easy to market",
   "because our last game pivoted to a Live Service model and failed to attract enough Daily Active Users to please the shareholders"
 ];
-/* console.log("And suffixes are: " + gameNamesSuffixes); */
 
 // Now create an array to hold all game names
-
 var franchiseAdjective;
 var franchiseNoun;
 
+// lol wow I had no idea how JavaScript worked in 2016
 var userGameNames = new Array();
 var franchiseNumber = 1;
 var franchiseNumberDisplayed = false;
@@ -375,14 +374,14 @@ function makeFirstGame() {
    	This logic should be as follows:
 		1. Sequels must add one of the following: an incremental number to the end of the title OR a prefix
 			a. If a prefix exists and a new one is added, remove the incremental number from the display name
-		2. Sequels MAY add a suffix on each iteration as well
-		3. Names display like this: [prefix]_[adjective]_[noun]_[incrementalNumber*]:_[suffix]
+		2. Sequels MAY add a subtitle on each iteration as well
+		3. Names display like this: [prefix]_[adjective]_[noun]_[incrementalNumber*]:_[subtitle]
 		4. Each sequel has an increasing chance of killing off the franchise entirely. When this happens,
 		hide the sequelize button and display a reset button.
 */
 
 var franchisePrefix = "";
-var franchiseSuffix = "";
+var franchiseSubtitle = "";
 
 function sequelizeGame() {
   franchiseNumber++;
@@ -396,10 +395,12 @@ function sequelizeGame() {
     franchiseNumber = 1;
   }
 
-  // Roll to see if a suffix should be added too - 3 in 10 chance
+  // Roll to see if a subtitle should be added too - 3 in 10 chance
   if (Math.random() > 0.3) {
-    franchiseSuffix =
-      gameNamesSuffixes[Math.floor(Math.random() * gameNamesSuffixes.length)];
+    franchiseSubtitle =
+      gameNamesSubtitlees[
+        Math.floor(Math.random() * gameNamesSubtitlees.length)
+      ];
   }
 
   // Roll to see if we should kill the franchise
@@ -409,8 +410,8 @@ function sequelizeGame() {
     if (franchiseNumberDisplayed === true) {
       if (franchisePrefix === "") {
         // If prefix NOT displayed
-        if (franchiseSuffix === "") {
-          // No prefix, no suffix, yes number displayed
+        if (franchiseSubtitle === "") {
+          // No prefix, no subtitle, yes number displayed
           newGameName =
             '"' +
             franchiseAdjective +
@@ -420,7 +421,7 @@ function sequelizeGame() {
             franchiseNumber +
             '"';
         } else {
-          //No prefix, yes suffix, yes number displayed
+          //No prefix, yes subtitle, yes number displayed
           newGameName =
             '"' +
             franchiseAdjective +
@@ -429,13 +430,13 @@ function sequelizeGame() {
             " " +
             franchiseNumber +
             ": " +
-            franchiseSuffix +
+            franchiseSubtitle +
             '"';
         }
       } else {
         // if prefix IS displayed from previous iteration
-        if (franchiseSuffix === "") {
-          // yes prefix, no suffix, yes display number
+        if (franchiseSubtitle === "") {
+          // yes prefix, no subtitle, yes display number
           newGameName =
             '"' +
             franchisePrefix +
@@ -447,7 +448,7 @@ function sequelizeGame() {
             franchiseNumber +
             '"';
         } else {
-          // yes prefix, yes suffix, yes display number
+          // yes prefix, yes subtitle, yes display number
           newGameName =
             '"' +
             franchisePrefix +
@@ -458,30 +459,30 @@ function sequelizeGame() {
             " " +
             franchiseNumber +
             ": " +
-            franchiseSuffix +
+            franchiseSubtitle +
             '"';
         }
       }
     } else {
       // NO franchise number displayed
       if (franchisePrefix === "") {
-        if (franchiseSuffix === "") {
-          //no prefix, no suffix, no franchise number - shouldn't happen
+        if (franchiseSubtitle === "") {
+          //no prefix, no subtitle, no franchise number - shouldn't happen
           newGameName = '"' + franchiseAdjective + " " + franchiseNoun + '"';
         } else {
-          //no prefix, YES suffix, no franchise number - also shouldn't happen
+          //no prefix, YES subtitle, no franchise number - also shouldn't happen
           newGameName =
             '"' +
             franchiseAdjective +
             " " +
             franchiseNoun +
             ": " +
-            franchiseSuffix +
+            franchiseSubtitle +
             '"';
         }
       } else {
-        if (franchiseSuffix === "") {
-          //YES prefix, no suffix, no franchise number
+        if (franchiseSubtitle === "") {
+          //YES prefix, no subtitle, no franchise number
           newGameName =
             '"' +
             franchisePrefix +
@@ -491,7 +492,7 @@ function sequelizeGame() {
             franchiseNoun +
             '"';
         } else {
-          // YES prefix, YES suffix, no franchise number
+          // YES prefix, YES subtitle, no franchise number
           newGameName =
             '"' +
             franchisePrefix +
@@ -500,7 +501,7 @@ function sequelizeGame() {
             " " +
             franchiseNoun +
             ": " +
-            franchiseSuffix +
+            franchiseSubtitle +
             '"';
         }
       }
@@ -510,7 +511,6 @@ function sequelizeGame() {
     document.getElementById("gameNameDisplay").innerHTML +=
       '<p class="newGameStyle">' + newGameName + "</p>";
   } else {
-    // console.log("Done after " + userGameNames.length + " turns.");
     document.getElementById("gameNameDisplay").innerHTML +=
       "<br /><p>Unfortunately, after " +
       userGameNames.length +
@@ -524,5 +524,5 @@ function sequelizeGame() {
     franchiseNumber = 1;
     gameOver = true;
   }
-  franchiseSuffix = ""; // Clear the suffix if there is one
+  franchiseSubtitle = ""; // Clear the subtitle if there is one
 }
