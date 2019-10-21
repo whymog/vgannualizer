@@ -1,6 +1,8 @@
 /*
 ======VIDEO GAME FRANCHISE ANNUALIZER======
-A thing that Nick Cummings wrote - say hi at http://www.nickcummings.com/ or @nickcummings
+A thing that Nick Cummings wrote - say hi at @whymog on GitHub or @nickcummings on Twitter
+
+Pull requests welcome: https://github.com/whymog/vgannualizer
 
 =======INTRODUCTION========
 
@@ -28,9 +30,10 @@ window.onload = function() {
   document.addEventListener("keydown", function(event) {
     console.log("keydown on " + event.keyCode);
     if (event.keyCode === 83 && !gameOver) {
-      // letter 's'
+      // letter 's' - display next sequel
       gameStarted ? sequelizeGame() : makeFirstGame();
     } else if (event.keyCode === 82 && gameOver) {
+      // letter 'r' - reload the page
       this.location.reload();
     }
   });
@@ -67,7 +70,6 @@ var gameNamesPrefixes = [
   "We Made Another",
   "Zero Escape:"
 ];
-// console.log("Prefixes are: " + gameNamesPrefixes);
 
 var gameNamesAdjectives = [
   ".hack",
@@ -154,7 +156,6 @@ var gameNamesAdjectives = [
   "World of",
   "You Don't Know"
 ];
-// console.log("Adjectives are: " + gameNamesAdjectives);
 
 var gameNamesNouns = [
   "Alpha Centauri",
@@ -239,7 +240,6 @@ var gameNamesNouns = [
   "Zombies",
   "Zork"
 ];
-// console.log("Nouns are: " + gameNamesNouns);
 
 var gameNamesSuffixes = [
   "$$ Freemium Edition $$",
@@ -362,7 +362,6 @@ function makeFirstGame() {
   franchiseNoun =
     gameNamesNouns[Math.floor(Math.random() * gameNamesNouns.length)];
   userGameNames[0] = franchiseAdjective + " " + franchiseNoun;
-  console.log(userGameNames[0]);
   document.getElementById("gameNameSection").style.visibility = "visible";
   document.getElementById("paraGameName").className = "textFadeIn";
   document.getElementById("btnStart").style.display = "none";
@@ -405,8 +404,6 @@ function sequelizeGame() {
 
   // Roll to see if we should kill the franchise
   if (Math.floor(Math.random() * 30) + 1 > userGameNames.length + 1) {
-    console.log("Still going...");
-
     var newGameName = String;
 
     if (franchiseNumberDisplayed === true) {
@@ -422,7 +419,6 @@ function sequelizeGame() {
             " " +
             franchiseNumber +
             '"';
-          // console.log("Display franchise number, no prefix, no suffix: " + newGameName);
         } else {
           //No prefix, yes suffix, yes number displayed
           newGameName =
@@ -435,7 +431,6 @@ function sequelizeGame() {
             ": " +
             franchiseSuffix +
             '"';
-          // console.log("Display franchise number, no prefix, yes suffix: " + newGameName);
         }
       } else {
         // if prefix IS displayed from previous iteration
@@ -451,7 +446,6 @@ function sequelizeGame() {
             " " +
             franchiseNumber +
             '"';
-          // console.log("Display franchise number, yes prefix, no suffix: " + newGameName);
         } else {
           // yes prefix, yes suffix, yes display number
           newGameName =
@@ -466,7 +460,6 @@ function sequelizeGame() {
             ": " +
             franchiseSuffix +
             '"';
-          // console.log("Display franchise number, prefix and suffix: " + newGameName);
         }
       }
     } else {
@@ -475,7 +468,6 @@ function sequelizeGame() {
         if (franchiseSuffix === "") {
           //no prefix, no suffix, no franchise number - shouldn't happen
           newGameName = '"' + franchiseAdjective + " " + franchiseNoun + '"';
-          // console.log("!!BAD!! No prefix, No suffix, No number: " + newGameName);
         } else {
           //no prefix, YES suffix, no franchise number - also shouldn't happen
           newGameName =
@@ -486,7 +478,6 @@ function sequelizeGame() {
             ": " +
             franchiseSuffix +
             '"';
-          // console.log("!!BAD!! Display suffix, NO prefix or franchise number: " + newGameName);
         }
       } else {
         if (franchiseSuffix === "") {
@@ -499,7 +490,6 @@ function sequelizeGame() {
             " " +
             franchiseNoun +
             '"';
-          // console.log("Display franchise prefix, NO suffix or franchise number: " + newGameName);
         } else {
           // YES prefix, YES suffix, no franchise number
           newGameName =
@@ -512,7 +502,6 @@ function sequelizeGame() {
             ": " +
             franchiseSuffix +
             '"';
-          // console.log("Display prefix and suffix, NO franchise number: " + newGameName);
         }
       }
     }
@@ -529,7 +518,7 @@ function sequelizeGame() {
       franchiseCancelReasons[
         Math.floor(Math.random() * franchiseCancelReasons.length)
       ] +
-      '. <a href="#" onClick="location.reload();"></p><p>Refresh the page</a> (or press <u>R</u>) to try again!</p>';
+      '. <a href="#" onClick="location.reload();"></p><p>Refresh the page</a> (or press the <u>R</u> key) to try again!</p>';
     document.getElementById("btnSequel").style.visibility = "hidden";
     document.getElementById("bottomLinks").style.visibility = "visible";
     franchiseNumber = 1;
