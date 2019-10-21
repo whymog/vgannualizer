@@ -31,7 +31,7 @@ window.onload = function() {
     if (event.keyCode === 83 && !gameOver) {
       // letter 's' - display next sequel
       gameStarted ? sequelizeGame() : makeFirstGame();
-    } else if (event.keyCode === 82 && gameOver) {
+    } else if (event.keyCode === 82) {
       // letter 'r' - reload the page
       this.location.reload();
     }
