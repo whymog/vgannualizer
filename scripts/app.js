@@ -88,7 +88,6 @@ var gameNamesAdjectives = [
   "Crash 'n' the",
   "Cruis'n",
   "Dangerous High School Girls in",
-  "Dave Mirra's",
   "Day of the",
   "Dead",
   "Doki Doki",
