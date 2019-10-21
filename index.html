@@ -1,38 +1,66 @@
 <html>
-
-	<head>
-		<title>Video Game Franchise Annualizer</title>
-
-		<link rel="stylesheet" type="text/css" href="./styles/style.css">
-
-		<script src="./scripts/app.js"></script>
-	</head>
-
-	<body>
-		<!-- All the things go here -->
-		<div class="topText">
-			<h1>Video Game Franchise Annualizer</h1>
-			<p class="textFadeIn">Hijack a good game. Crank out yearly sequels. Rake in the big bucks.</p>
-			<button id="btnStart" onClick=makeFirstGame();><span class="underline">S</span>tart the Next Great Triple-A Franchise</button>
-
-		</div>
-
-		<div id="gameNameSection">
-			<p id="paraGameName">Your game is...</p>
-			<div id="gameNameDisplay"></div>
-			<button id="btnSequel" onClick="sequelizeGame();"><span class="underline">S</span>equelize it!</button>
-		</div>
-
-		<!-- Twitter button here -->
-		<div id="bottomLinks">
-			<div id="bottomLine"></div>
-			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.videogameannualizer.com/" data-text="I ran a quality game series straight into the ground with the Video Game Franchise Annualizer:" data-hashtags="vgannualizer" data-lang="en">Tweet</a>
-			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-			<p><strong>New!</strong> Contribute to the Video Game Annualizer lexicon, or fork your own version, on <a href="https://github.com/whymog/vgannualizer" target="_blank">GitHub</a>.</p>
-			<p>This is a dumb little thing by <a href="http://www.twitter.com/nickcummings">Nick Cummings</a>. Special thanks to <a href="http://www.twitter.com/spencertordoff">Spencer Tordoff</a>.</p>
-		</div>
-	</body>
-
-	<script src="./scripts/ga.js"></script>
-
+  <head>
+    <meta charset="UTF-8" />
+    <title>Video Game Franchise Annualizer</title>
+    <link rel="stylesheet" type="text/css" href="./styles/style.css" />
+    <script src="./scripts/app.js"></script>
+  </head>
+  <body>
+    <!-- All the things go here -->
+    <div class="topText">
+      <h1>Video Game Franchise Annualizer</h1>
+      <p class="textFadeIn">
+        Hijack a good game. Crank out yearly sequels. Rake in the big bucks.
+      </p>
+      <button id="btnStart" onClick="makeFirstGame();">
+        <span class="underline">S</span>tart the Next Great Triple-A Franchise
+      </button>
+    </div>
+    <div id="gameNameSection">
+      <p id="paraGameName">Your game is...</p>
+      <div id="gameNameDisplay"></div>
+      <button id="btnSequel" onClick="sequelizeGame();">
+        <span class="underline">S</span>equelize it!
+      </button>
+    </div>
+    <!-- Twitter button here -->
+    <div id="bottomLinks">
+      <div id="bottomLine"></div>
+      <a
+        href="https://twitter.com/share"
+        class="twitter-share-button"
+        data-url="http://www.videogameannualizer.com/"
+        data-text="I ran a quality game series straight into the ground with the Video Game Franchise Annualizer:"
+        data-hashtags="vgannualizer"
+        data-lang="en"
+        >Tweet</a
+      >
+      <script>
+        !(function(d, s, id) {
+          var js,
+            fjs = d.getElementsByTagName(s)[0];
+          if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+          }
+        })(document, "script", "twitter-wjs");
+      </script>
+      <p>
+        <strong>New!</strong> Contribute to the Video Game Annualizer lexicon,
+        or fork your own version, on
+        <a href="https://github.com/whymog/vgannualizer" target="_blank"
+          >GitHub</a
+        >.
+      </p>
+      <p>
+        This is a dumb little thing by
+        <a href="http://www.twitter.com/nickcummings">Nick Cummings</a>. Special
+        thanks to
+        <a href="http://www.twitter.com/spencertordoff">Spencer Tordoff</a>.
+      </p>
+    </div>
+  </body>
+  <script src="./scripts/ga.js"></script>
 </html>
