@@ -102,6 +102,7 @@ var gameNamesAdjectives = [
   "Harry Belafonte's",
   "Hatsune Miku",
   "Hey! Let's Go!",
+  "High Magic",
   "High School",
   "Howard Zinn's",
   "Imagine:",
@@ -196,6 +197,7 @@ var gameNamesNouns = [
   "Jack",
   "Journey",
   "Kombat",
+  "Lowlives",
   "Mad Dog McCree",
   "Metroid",
   "Mystery Dungeon",
@@ -366,7 +368,7 @@ function makeFirstGame() {
   document.getElementById("gameNameDisplay").innerHTML =
     '<p class="newGameStyle">"' +
     userGameNames[0] +
-    "\"</p><p>Impressive. It's rare to see such an achievement of innovative design and cutting-edge graphics. Critics are sure to eat it up.</p><p>But why stop there when there's mad skrilla to be made?</p>";
+    "\"</p><p>Impressive. It's rare to see such an achievement of innovative design and cutting-edge graphics. Critics are sure to eat it up.</p><p>But why stop there when there's an obscene amount of money to be made?</p>";
 }
 
 /*  Okay, everything's good so far. Now we need to add some naming logic for subsequent sequels.
@@ -510,6 +512,10 @@ function sequelizeGame() {
     document.getElementById("gameNameDisplay").innerHTML +=
       '<p class="newGameStyle">' + newGameName + "</p>";
   } else {
+    // Remove sequel button
+    var sequelButton = document.getElementById("btnSequel");
+    sequelButton.style = "display: none;";
+
     // Update Twitter button text
     twttr.widgets.load();
     var franchiseName = userGameNames[0];
@@ -529,6 +535,7 @@ function sequelizeGame() {
 
     var wrapper = document.getElementById("twitterWrapper");
     wrapper.appendChild(twitterButton);
+    wrapper.classList.add("visible");
 
     // Show final output
     document.getElementById("gameNameDisplay").innerHTML +=
@@ -545,4 +552,7 @@ function sequelizeGame() {
     gameOver = true;
   }
   franchiseSubtitle = ""; // Clear the subtitle if there is one
+
+  // Scroll to bottom of page
+  window.scrollTo(0, document.body.scrollHeight);
 }
