@@ -1,21 +1,63 @@
 * {
-	font-family:"Helvetica","Tahoma",sans-serif;
+	font-family: "Helvetica Neue", "Open Sans", "Helvetica", "Tahoma", sans-serif;
 }
 
-body {
-	max-width: 1100px;
-	margin: 0 auto;
+@media (max-width: 680px) {
+	* {
+		text-align: left;
+	}
+
+	body {
+		margin: 0 32px;
+	}
+
+	.topText p.textFadeIn {
+		font-size: 24px;
+	}
+
+	p.newGameStyle {
+		font-size: 36px;
+	}
+
+	#gameNameSection {
+		margin: 0;
+	}
+}
+
+@media (min-width: 681px) {
+	body {
+		max-width: 1100px;
+		margin: 0 auto;
+	}	
 }
 
 button {
-	font-size: 1.0em;
+	border: none;
+	border-radius: 8px;
+	padding: 8px 16px 12px;
+	font-size: 1.8em;
+
+	background: linear-gradient(#ffaf64, #ff7d03);
+	color: #222;
+
+	cursor: pointer;
+
+	box-shadow: 0 2px 8px 4px rgba(125, 125, 125, 0.4);
+
+	transition: box-shadow 150ms ease-in-out;
+}
+
+button#btnSequel {
+	margin-top: 16px;
+}
+
+button:hover {
+	box-shadow: 0 2px 8px 4px rgba(125, 125, 125, 0.8);
 }
 
 #gameNameSection {
 	visibility: hidden;
 	text-align: center;
-	margin-right: 10%;
-	margin-left: 10%;
 }
 
 .underline {
@@ -24,6 +66,7 @@ button {
 
 .newGameStyle {
 	font-size:2.6em;
+	font-weight: 700;
 	margin-top:10px;
 	margin-bottom:20px;
 }

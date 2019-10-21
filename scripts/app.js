@@ -366,9 +366,9 @@ function makeFirstGame() {
   document.getElementById("paraGameName").className = "textFadeIn";
   document.getElementById("btnStart").style.display = "none";
   document.getElementById("gameNameDisplay").innerHTML =
-    '<p class="newGameStyle">"' +
+    '<p class="newGameStyle">' +
     userGameNames[0] +
-    "\"</p><p>Impressive. It's rare to see such an achievement of innovative design and cutting-edge graphics. Critics are sure to eat it up.</p><p>But why stop there when there's an obscene amount of money to be made?</p>";
+    "</p><p>Impressive. It's rare to see such an achievement of innovative design and cutting-edge graphics. Critics are sure to eat it up.</p><p>But why stop there when there's an obscene amount of money to be made?</p>";
 }
 
 /*  Okay, everything's good so far. Now we need to add some naming logic for subsequent sequels.
@@ -414,44 +414,33 @@ function sequelizeGame() {
         if (franchiseSubtitle === "") {
           // No prefix, no subtitle, yes number displayed
           newGameName =
-            '"' +
-            franchiseAdjective +
-            " " +
-            franchiseNoun +
-            " " +
-            franchiseNumber +
-            '"';
+            franchiseAdjective + " " + franchiseNoun + " " + franchiseNumber;
         } else {
           //No prefix, yes subtitle, yes number displayed
           newGameName =
-            '"' +
             franchiseAdjective +
             " " +
             franchiseNoun +
             " " +
             franchiseNumber +
             ": " +
-            franchiseSubtitle +
-            '"';
+            franchiseSubtitle;
         }
       } else {
         // if prefix IS displayed from previous iteration
         if (franchiseSubtitle === "") {
           // yes prefix, no subtitle, yes display number
           newGameName =
-            '"' +
             franchisePrefix +
             " " +
             franchiseAdjective +
             " " +
             franchiseNoun +
             " " +
-            franchiseNumber +
-            '"';
+            franchiseNumber;
         } else {
           // yes prefix, yes subtitle, yes display number
           newGameName =
-            '"' +
             franchisePrefix +
             " " +
             franchiseAdjective +
@@ -460,8 +449,7 @@ function sequelizeGame() {
             " " +
             franchiseNumber +
             ": " +
-            franchiseSubtitle +
-            '"';
+            franchiseSubtitle;
         }
       }
     } else {
@@ -473,37 +461,23 @@ function sequelizeGame() {
         } else {
           //no prefix, YES subtitle, no franchise number - also shouldn't happen
           newGameName =
-            '"' +
-            franchiseAdjective +
-            " " +
-            franchiseNoun +
-            ": " +
-            franchiseSubtitle +
-            '"';
+            franchiseAdjective + " " + franchiseNoun + ": " + franchiseSubtitle;
         }
       } else {
         if (franchiseSubtitle === "") {
           //YES prefix, no subtitle, no franchise number
           newGameName =
-            '"' +
-            franchisePrefix +
-            " " +
-            franchiseAdjective +
-            " " +
-            franchiseNoun +
-            '"';
+            franchisePrefix + " " + franchiseAdjective + " " + franchiseNoun;
         } else {
           // YES prefix, YES subtitle, no franchise number
           newGameName =
-            '"' +
             franchisePrefix +
             " " +
             franchiseAdjective +
             " " +
             franchiseNoun +
             ": " +
-            franchiseSubtitle +
-            '"';
+            franchiseSubtitle;
         }
       }
     }
