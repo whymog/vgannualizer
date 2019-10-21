@@ -2,7 +2,7 @@
 	font-family: "Helvetica Neue", "Open Sans", "Helvetica", "Tahoma", sans-serif;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 375px) {
 	* {
 		text-align: left;
 	}
