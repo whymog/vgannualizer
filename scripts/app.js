@@ -28,7 +28,6 @@ IV. Kill the franchise once it's overstayed its welcome
 window.onload = function() {
   document.getElementById("gameNameSection").style.visibility = "hidden";
   document.addEventListener("keydown", function(event) {
-    console.log("keydown on " + event.keyCode);
     if (event.keyCode === 83 && !gameOver) {
       // letter 's' - display next sequel
       gameStarted ? sequelizeGame() : makeFirstGame();
@@ -511,6 +510,27 @@ function sequelizeGame() {
     document.getElementById("gameNameDisplay").innerHTML +=
       '<p class="newGameStyle">' + newGameName + "</p>";
   } else {
+    // Update Twitter button text
+    twttr.widgets.load();
+    var franchiseName = userGameNames[0];
+    var twitterButtonText = `I ran the "${franchiseName}" video game series into the ground after ${userGameNames.length -
+      1} sequels, and it's all thanks to the Video Game Franchise Annualizer:`;
+
+    var twitterButton = document.createElement("a");
+    twitterButton.className = "twitter-share-button";
+    twitterButton.dataset.size = "large";
+    twitterButton.rel = "canonical";
+    twitterButton.href = encodeURI(
+      "https://twitter.com/intent/tweet?text=" +
+        twitterButtonText +
+        "&url=https://videogameannualizer.com" +
+        "&hashtags=vgannualizer"
+    );
+
+    var wrapper = document.getElementById("twitterWrapper");
+    wrapper.appendChild(twitterButton);
+
+    // Show final output
     document.getElementById("gameNameDisplay").innerHTML +=
       "<br /><p>Unfortunately, after " +
       userGameNames.length +

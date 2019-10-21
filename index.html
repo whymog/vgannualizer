@@ -26,27 +26,7 @@
     <!-- Twitter button here -->
     <div id="bottomLinks">
       <div id="bottomLine"></div>
-      <a
-        href="https://twitter.com/share"
-        class="twitter-share-button"
-        data-url="http://www.videogameannualizer.com/"
-        data-text="I ran a quality game series straight into the ground with the Video Game Franchise Annualizer:"
-        data-hashtags="vgannualizer"
-        data-lang="en"
-        >Tweet</a
-      >
-      <script>
-        !(function(d, s, id) {
-          var js,
-            fjs = d.getElementsByTagName(s)[0];
-          if (!d.getElementById(id)) {
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://platform.twitter.com/widgets.js";
-            fjs.parentNode.insertBefore(js, fjs);
-          }
-        })(document, "script", "twitter-wjs");
-      </script>
+      <div id="twitterWrapper"></div>
       <p>
         <strong>New!</strong> Contribute to the Video Game Annualizer lexicon,
         or fork your own version, on
@@ -62,5 +42,24 @@
       </p>
     </div>
   </body>
+  <script>
+    window.twttr = (function(d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+
+      return t;
+    })(document, "script", "twitter-wjs");
+  </script>
   <script src="./scripts/ga.js"></script>
 </html>
